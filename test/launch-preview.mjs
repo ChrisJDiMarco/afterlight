@@ -1,0 +1,10 @@
+import { _electron as electron } from '@playwright/test';
+const app=await electron.launch({args:['.','--user-data-dir=/tmp/afterlight-preview'],cwd:process.cwd()});
+const page=await app.firstWindow();
+page.on('pageerror',error=>console.error('PAGE_ERROR',error));
+page.on('console',message=>{if(message.type()==='error')console.error('CONSOLE',message.text());});
+await page.waitForFunction(()=>window.afterlight);
+await page.screenshot({path:'test/artifacts/first-window.png'});
+console.log('READY',await page.title(),await page.evaluate(()=>window.afterlight.getState()));
+await new Promise(resolve=>setTimeout(resolve,900000));
+await app.close();

@@ -1,0 +1,179 @@
+{
+  "checks": [
+    "Default read-along pace leaves ample time before the first move",
+    "Watch starts fresh, shows real move commentary, and pause cancels autoplay",
+    "Next move advances exactly once while paused",
+    "Both AI colors alternate with their own explanations",
+    "Spectator moves never overwrite the saved human match",
+    "Resume and selected pace automatically play both sides",
+    "Full AI match completes inside commentary modal with replay",
+    "Watch another resets and return restores exact human position",
+    "Closing/reloading during a watched match restores human autosave",
+    "Return during animation waits safely and restores original game"
+  ],
+  "errors": [],
+  "commentary": [
+    {
+      "ply": 5,
+      "speaker": "AMBER AI",
+      "title": "A turn at F3",
+      "summary": "Amber turns F3 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 6,
+      "speaker": "BLUE AI",
+      "title": "A turn at F4",
+      "summary": "Blue turns F4 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 7,
+      "speaker": "AMBER AI",
+      "title": "A turn at D3",
+      "summary": "Amber turns the empty junction at D3 before letting the light advance."
+    },
+    {
+      "ply": 8,
+      "speaker": "BLUE AI",
+      "title": "A turn at B2",
+      "summary": "Blue turns B2 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 9,
+      "speaker": "AMBER AI",
+      "title": "A turn at C1",
+      "summary": "Amber turns the empty junction at C1 before letting the light advance."
+    },
+    {
+      "ply": 10,
+      "speaker": "BLUE AI",
+      "title": "A turn at B6",
+      "summary": "Blue turns B6 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 11,
+      "speaker": "AMBER AI",
+      "title": "A turn at E3",
+      "summary": "Amber turns the empty junction at E3 before letting the light advance."
+    },
+    {
+      "ply": 12,
+      "speaker": "BLUE AI",
+      "title": "A turn at A1",
+      "summary": "Blue turns A1 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 13,
+      "speaker": "AMBER AI",
+      "title": "A turn at A2",
+      "summary": "Amber turns A2 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 14,
+      "speaker": "BLUE AI",
+      "title": "A turn at E3",
+      "summary": "Blue turns E3 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 15,
+      "speaker": "AMBER AI",
+      "title": "A turn at F2",
+      "summary": "Amber turns the empty junction at F2 before letting the light advance."
+    },
+    {
+      "ply": 16,
+      "speaker": "BLUE AI",
+      "title": "A turn at F2",
+      "summary": "Blue turns F2 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 17,
+      "speaker": "AMBER AI",
+      "title": "Let it run",
+      "summary": "Amber passes. Every spark still advances, and the switches they leave still turn."
+    },
+    {
+      "ply": 18,
+      "speaker": "BLUE AI",
+      "title": "A turn at B3",
+      "summary": "Blue turns B3 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 19,
+      "speaker": "AMBER AI",
+      "title": "A turn at D3",
+      "summary": "Amber turns the empty junction at D3 before letting the light advance."
+    },
+    {
+      "ply": 20,
+      "speaker": "BLUE AI",
+      "title": "A turn at C5",
+      "summary": "Blue turns the empty junction at C5 before letting the light advance."
+    },
+    {
+      "ply": 21,
+      "speaker": "AMBER AI",
+      "title": "A turn at B5",
+      "summary": "Amber turns the empty junction at B5 before letting the light advance."
+    },
+    {
+      "ply": 22,
+      "speaker": "BLUE AI",
+      "title": "A turn at B5",
+      "summary": "Blue turns B5 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 23,
+      "speaker": "AMBER AI",
+      "title": "A turn at C5",
+      "summary": "Amber turns C5 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 24,
+      "speaker": "BLUE AI",
+      "title": "A turn at C4",
+      "summary": "Blue turns C4 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 25,
+      "speaker": "AMBER AI",
+      "title": "A turn at D4",
+      "summary": "Amber turns D4 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 26,
+      "speaker": "BLUE AI",
+      "title": "A turn at D5",
+      "summary": "Blue turns D5 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 27,
+      "speaker": "AMBER AI",
+      "title": "A turn at E5",
+      "summary": "Amber turns E5 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 28,
+      "speaker": "BLUE AI",
+      "title": "A turn at E4",
+      "summary": "Blue turns E4 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 29,
+      "speaker": "AMBER AI",
+      "title": "A turn at F5",
+      "summary": "Amber turns the empty junction at F5 before letting the light advance."
+    },
+    {
+      "ply": 30,
+      "speaker": "BLUE AI",
+      "title": "An even finish ahead",
+      "summary": "Blue turns F5 to redirect one spark arriving there on this advance."
+    },
+    {
+      "ply": 31,
+      "speaker": "AMBER AI",
+      "title": "An even exchange.",
+      "summary": "Amber passes. Every spark still advances, and the switches they leave still turn."
+    }
+  ]
+}

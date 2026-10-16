@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "Runs with browser networking disabled",
+    "Opening matches deterministic engine",
+    "Help opens and closes",
+    "Occupied canvas tile blocked",
+    "Canvas raycast selects exact tile and previews",
+    "Animated human move and real worker AI reply both follow engine",
+    "Undo restores entire human/computer round",
+    "Optional sound toggles without errors",
+    "Orbit drag does not accidentally select; top/reset controls work",
+    "Local mode, reduced motion, and pass follow engine",
+    "Autosave restores board, score, turn, and mode on reload",
+    "Saved undo history survives reload",
+    "Complete 26-move game reaches correct 1 result and scoring forecasts",
+    "Game-over replay resets to playable game",
+    "1000×740 minimum window has no horizontal overflow"
+  ],
+  "errors": [],
+  "result": {
+    "winner": 1,
+    "scores": [
+      3,
+      5
+    ],
+    "plies": 26
+  }
+}

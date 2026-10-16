@@ -1,0 +1,45 @@
+{
+  "name": "afterlight",
+  "productName": "Afterlight",
+  "version": "0.1.0",
+  "description": "A game of paths, timing, and the light left behind.",
+  "private": true,
+  "type": "module",
+  "main": "electron.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "npm run build && electron .",
+    "test": "node --test test/*.test.js",
+    "package": "npm run build && electron-builder --mac dir --arm64",
+    "test:app": "npm run build && node test/electron-smoke.mjs",
+    "test:watch": "npm run build && node test/spectator-smoke.mjs"
+  },
+  "build": {
+    "appId": "studio.afterlight.game",
+    "productName": "Afterlight",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron.cjs",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.strategy-games",
+      "identity": null,
+      "icon": "assets/icon.icns"
+    }
+  },
+  "dependencies": {
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3",
+    "vite": "^8.2.2"
+  },
+  "author": "Afterlight Studio"
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'" />
+  <title>Afterlight</title>
+</head>
+<body>
+  <div id="app">
+    <header class="titlebar">
+      <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 20Q20 20 20 4M20 36Q20 20 36 20"/><circle cx="20" cy="8" r="3"/></svg><span>AFTERLIGHT</span><span class="edition">A GAME OF CONSEQUENCES</span></div>
+      <nav aria-label="Game"><button id="watch-button" class="quiet watch-launch">▷ Watch AI</button><button id="help-button" class="quiet">How to play <span class="key">?</span></button><button id="new-button" class="quiet new">New game <span>↗</span></button></nav>
+    </header>
+    <main>
+      <section class="arena" aria-label="Game board">
+        <div class="arena-top"><div><span class="eyebrow">THE SHARED FIELD</span><h1>Every light leaves a way.</h1></div><div class="live-label"><i></i><span id="mode-label">VS COMPUTER</span></div></div>
+        <div id="scene" tabindex="0" aria-label="3D game board. Use arrow keys to select a tile and Enter to turn it. Drag to orbit and scroll to zoom."></div>
+        <div class="board-caption"><div class="orbit-hint"><span class="orbit-symbol">⤧</span> Drag to orbit <span class="dot">·</span> Scroll to zoom</div><div class="camera-actions"><button id="top-button" class="quiet" aria-pressed="false">Top view</button><button id="camera-button" class="icon-button" aria-label="Reset camera" title="Reset camera">⟲</button></div></div>
+        <div class="field-status"><span id="remaining">8 sparks in play</span><div id="sparks-dots" aria-hidden="true"></div><span id="ply-label">TURN 01</span></div>
+      </section>
+      <aside class="control-panel">
+        <div class="score-heading"><span class="eyebrow">RACE TO FIVE</span><span class="experimental">FIRST EDITION</span></div>
+        <div class="scores">
+          <div class="score amber" id="score-amber"><div class="player-name"><i></i><span id="amber-name">YOU</span></div><div class="score-value" id="amber-score">0</div><div class="score-pips" id="amber-pips"></div><span class="goal-label">WEST COLLECTOR</span></div>
+          <span class="score-divider">/</span>
+          <div class="score blue" id="score-blue"><div class="player-name"><i></i><span id="blue-name">COMPUTER</span></div><div class="score-value" id="blue-score">0</div><div class="score-pips" id="blue-pips"></div><span class="goal-label">EAST COLLECTOR</span></div>
+        </div>
+        <div class="turn-card">
+          <div class="turn-indicator"><span id="turn-orb"></span><span id="turn-label">YOUR TURN</span><span id="thinking-dots"></span></div>
+          <h2 id="instruction-title">Shape the next arrival.</h2>
+          <p id="instruction">Choose an empty tile. Turn its tracks, then every spark moves one step.</p>
+          <div class="selection-row"><label for="tile-select">Selected tile</label><select id="tile-select" aria-label="Select a tile"><option value="">Choose on board</option></select></div>
+          <div class="preview-row"><span id="preview-label">ONE-STEP PREVIEW</span><span class="preview-eye">◉</span></div>
+          <div id="forecast" class="forecast">Select a tile to see where the light goes.</div>
+          <button id="commit-button" class="primary" disabled><span id="commit-label">Choose a tile</span><span>↗</span></button>
+          <div class="secondary-actions"><button id="pass-button">Pass & advance</button><button id="undo-button" disabled>↶ Undo</button></div>
+        </div>
+        <div class="rule-note"><span class="rule-icon">↱</span><p>A spark turns the tile behind it.<br/><strong>The next arrival takes another path.</strong></p></div>
+        <div class="history-head"><span class="eyebrow">LAST MOVES</span><span id="history-count">—</span></div>
+        <ol id="move-history" aria-label="Recent moves"><li class="empty-history">The field is waiting.</li></ol>
+        <div class="panel-bottom"><button id="sound-button" class="quiet" aria-pressed="false">♫ Sound off</button><button id="motion-button" class="quiet" aria-pressed="false">Gentle motion</button></div>
+      </aside>
+    </main>
+    <footer><span>PATHS CHANGE. CONSEQUENCES REMAIN.</span><span id="save-status">Saved on this Mac</span><span class="footer-right">AFTERLIGHT <span class="version">/ 01</span></span></footer>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="help-dialog" class="help-dialog">
+    <button class="dialog-close" data-close="help-dialog" aria-label="Close instructions">×</button>
+    <span class="eyebrow">WELCOME TO AFTERLIGHT</span><h2>Follow the light.<br/>Think one arrival ahead.</h2>
+    <p class="dialog-lead">Eight sparks. Two collectors. One shared, changing field.</p>
+    <div class="lesson-grid">
+      <div class="lesson"><span class="lesson-number">01</span><h3>Turn one empty tile</h3><p>Click a tile to preview its new paths. Choose <strong>Turn & advance</strong> to commit. Occupied tiles are locked.</p></div>
+      <div class="lesson"><span class="lesson-number">02</span><h3>Everything advances</h3><p>All sparks move through one tile, on both players’ turns. Each spark turns the tile it just used.</p></div>
+      <div class="lesson"><span class="lesson-number">03</span><h3>Collect five sparks</h3><p>Amber collects on the west edge; blue on the east. Top and bottom edges reflect light back into the field.</p></div>
+      <div class="lesson"><span class="lesson-number">04</span><h3>Time the next arrival</h3><p>Two sparks crossing the same tile cancel its rotation. A path you give away now can prepare a point later.</p></div>
+    </div>
+    <div class="help-footnote">You may pass to advance without turning a tile. A 4–4 score or threefold repetition is a draw. The computer plays locally; no internet needed. This first edition is experimental.</div>
+    <button class="primary" data-close="help-dialog">Back to the field <span>↗</span></button>
+  </dialog>
+  <dialog id="new-dialog">
+    <button class="dialog-close" data-close="new-dialog" aria-label="Cancel new game">×</button>
+    <span class="eyebrow">A FRESH FIELD</span><h2>Make your next move.</h2><p class="dialog-lead">Return to the opening position with eight sparks and a fresh field.</p>
+    <fieldset><legend>Opponent</legend><label class="choice"><input type="radio" name="mode" value="ai" checked><span><strong>Play the computer</strong><small>You collect amber. The computer collects blue.</small></span></label><label class="choice"><input type="radio" name="mode" value="local"><span><strong>Two players, one Mac</strong><small>Take turns shaping the same field.</small></span></label></fieldset>
+    <label class="difficulty-label" for="difficulty">Computer strength</label><select id="difficulty"><option value="easy">Gentle — learn the field</option><option value="normal" selected>Thoughtful — plans ahead</option><option value="hard">Deep — looks further</option></select>
+    <p class="replace-note">Starting a new game replaces the saved game.</p><button id="start-button" class="primary">Start game <span>↗</span></button>
+  </dialog>
+  <dialog id="result-dialog">
+    <span class="eyebrow">THE FIELD IS STILL</span><div class="result-symbol">✧</div><h2 id="result-title">Amber wins.</h2><p id="result-detail" class="dialog-lead"></p><button id="play-again" class="primary">Play again <span>↗</span></button><button class="quiet inspect-board" data-close="result-dialog">Look at the final board</button>
+  </dialog>
+  <dialog id="watch-dialog" aria-labelledby="watch-title">
+    <button id="watch-close" class="dialog-close" aria-label="Stop watching and return to my game">×</button>
+    <span class="eyebrow">THE COMMENTARY BOX</span>
+    <div class="watch-speaker"><i id="watch-orb"></i><span id="watch-speaker">AMBER AI</span><span id="watch-move">MOVE 01</span></div>
+    <span id="watch-tag">READING THE FIELD</span>
+    <h2 id="watch-title">Two minds. One field.</h2>
+    <p id="watch-summary" aria-live="polite">Both computers are ready. Watch how each move prepares the next arrival.</p>
+    <p id="watch-insight"></p>
+    <div id="watch-consequence"></div>
+    <div class="watch-progress"><i id="watch-progress-bar"></i></div>
+    <div class="watch-status"><span id="watch-status">Choosing a move…</span><span>LIVE ANALYSIS</span></div>
+    <div class="watch-controls"><button id="watch-pause" class="primary">Ⅱ Pause</button><button id="watch-step" class="watch-step">Next move →</button></div>
+    <label class="watch-speed-label" for="watch-speed">Reading pace<select id="watch-speed"><option value="0" selected>Read along · auto</option><option value="30000">Unhurried · 30s</option><option value="10000">Steady · 10s</option><option value="2500">Fast · 2.5s</option></select></label>
+    <button id="watch-again" class="primary" hidden>Watch another match ↗</button>
+    <button id="watch-return" class="quiet">↶ Return to my game</button>
+  </dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
